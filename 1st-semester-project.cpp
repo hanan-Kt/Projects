@@ -13,7 +13,6 @@ public:
     long long population = 257293754;
     int provinces = 4;
     string cheif_marshal = "General Asim Munir";
-
     void g_spies (const int spies_new) {
         spies = spies + spies_new;
     }
@@ -22,6 +21,9 @@ public:
     }
     void g_population (const long long population_new) {
         population = population + population_new;
+    }
+    string r_agency () const {
+        return agency;
     }
     int r_spies () const {
         return spies;
@@ -43,6 +45,7 @@ public:
     cout << "\nProvinces: \t" << provinces;
     cout << "\nPopulation: \t" << std::fixed << std::setprecision(0) << r_population();
     cout << "\n\tSensitive Information:";
+        cout << "\nAgency: \t" << r_agency();
     cout << "\nNext Regime: \t" << r_regime();
     cout << "\nTotal spies: \t" << r_spies();
     cout << "\n***************************************\n";
