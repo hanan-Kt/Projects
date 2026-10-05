@@ -66,7 +66,7 @@ class Calculator(Numbers):
 
      def frequency_distribution(getList, class_width, no_of_classes, minimum, maximum, range_value):
             class_width = int(class_width)
-            frequency = []
+            frequency = {}
             value = minimum
 
             for a in range(no_of_classes):
