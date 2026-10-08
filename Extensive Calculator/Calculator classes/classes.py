@@ -1,19 +1,18 @@
 # // ''  ""  ?  % ^ 5 6
-import math
-
+import numpy as np
 class Numbers:
      def __init__(self, name):
           self.name = name
 
 def Enter_numbers(self, *numbers):
-    number_list = list(numbers)
+    number_list = np.array(numbers)
     return number_list
 
 def basics(self):
-     getList = self.Enter_numbers(*numbers)
+     getList = self.Enter_numbers(numbers)
      count = len(getList)
-     maximum = max(getList)
-     minimum = min(getList)
+     maximum = np.max(getList)
+     minimum = np.min(getList)
      range = maximum - minimum
      return count, maximum, minimum, range
 
