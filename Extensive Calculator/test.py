@@ -64,7 +64,7 @@ while answer == "Yes" or answer == "y" or answer == "Y" or answer == "yes":
     answer = input()
 
 print("You have entered all the numbers you want to enter.")
-print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root")
+print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n 6. Mean\n7. Standard Deviation\n8. Median")
 operation = int(input())
 if operation == 1:
        print("The sum of all numbers is: ", sum(array1))
