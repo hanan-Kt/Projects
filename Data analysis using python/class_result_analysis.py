@@ -6,9 +6,11 @@ data_set = pand.read_csv(r"C:\Users\Hanan\Downloads\Files\Projects\Data analysis
 #input_given = input("Enter your name: ")
 data_set = data_set.drop(columns = ["Sr. No.", "Roll #", "Pre Math", "%age", "Total", "SGPA"])
 data_set = data_set[data_set["Remarks"] != "Relegated"]
+data_set = data_set.sort_values(by = "CGPA", ascending = False)
 #data_set = data_set.apply(pand.to_numeric, errors='coerce')
 #print(data_set.mean().round(1))
-print(data_set.to_string())
+print(data_set.nlargest(10, "CGPA").to_string(index = False))
+#print(data_set.sort_values(by = "CGPA", ascending = False).to_string(index = False))
 #try:
    # if above3.loc[input_given] == True:
     #    print(f"{input_given} is in the list of above 3.0 CGPA students.")
