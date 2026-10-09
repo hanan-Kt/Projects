@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pand
 a = 0
 def InputingNumbers(num_arr):
       
@@ -64,7 +65,7 @@ while answer == "Yes" or answer == "y" or answer == "Y" or answer == "yes":
     answer = input()
 
 print("You have entered all the numbers you want to enter.")
-print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n 6. Mean\n7. Standard Deviation\n8. Median")
+print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n 6. Mean\n7. Standard Deviation\n8. Median\n9. Show in tabular form")
 operation = int(input())
 if operation == 1:
        print("The sum of all numbers is: ", sum(array1))
@@ -82,5 +83,8 @@ elif operation == 7:
        print("The standard deviation of all numbers is: ", std(array1))
 elif operation == 8:
        print("The median of all numbers is: ", median(array1))
+elif operation == 9:
+       tabular_format = pand.Series(array1, index = [f"{i + 1}" for i in range(len(array1))])
+       print("The numbers in tabular form are:\n", tabular_format)
 else:
          print("Invalid operation selected.")
