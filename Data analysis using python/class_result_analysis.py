@@ -1,6 +1,6 @@
 import pandas as pand
 
-data_set = pand.read_csv(r"C:\Users\Hanan\Downloads\Files\Projects\Data analysis using python\data.csv")
+data_set = pand.read_csv(r"/home/hanan/Downloads/Projects/Projects/Data analysis using python/data.csv")
 #print(data_set[["Roll #", "Name", "CGPA" , "Remarks"]].to_string(index = False))
 #above3 = data_set["CGPA"] > 3.0
 #input_given = input("Enter your name: ")
