@@ -103,5 +103,7 @@ if first_choice == "1":
 elif first_choice == "2":
  problem = input("Enter the math problem you want to solve: ")
  response = llm.invoke(problem)
- print(response.content)
+ diction = response.content[0]
+ final_response = diction['text']
+ print(final_response)
  
