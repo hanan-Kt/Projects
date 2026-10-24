@@ -58,48 +58,50 @@ llm = ChatGoogleGenerativeAI(
        temperature=0.5
        )
 
-array1 = np.array([])
-print("Enter a number: ")
-first = float(input())
-array1 = np.append(array1, first)
-print("Enter a number: ")
-second = float(input())
-array1 = np.append(array1, second)
-print("You have more number to enter? ")
-answer = input()
-while answer == "Yes" or answer == "y" or answer == "Y" or answer == "yes":
+first_choice = input("Do you want to enter numbers or solve a problem:\n1. Enter numbers\n2. Solve a problem\n")
+if first_choice == "1":
+  array1 = np.array([])
+  print("Enter a number: ")
+  first = float(input())
+  array1 = np.append(array1, first)
+  print("Enter a number: ")
+  second = float(input())
+  array1 = np.append(array1, second)
+  print("You have more number to enter? ")
+  answer = input()
+  while answer == "Yes" or answer == "y" or answer == "Y" or answer == "yes":
     print("Enter a number: ")
     next_num = float(input())
     array1 = np.append(array1, next_num)
     print("You have more number to enter? ")
     answer = input()
 
-print("You have entered all the numbers you want to enter.")
-print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n 6. Mean\n7. Standard Deviation\n8. Median\n9. Show in tabular form\n10. Solve a math problem")
-operation = int(input())
-if operation == 1:
+  print("You have entered all the numbers you want to enter.")
+  print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n 6. Mean\n7. Standard Deviation\n8. Median\n9. Show in tabular form\n10. Solve a math problem")
+  operation = int(input())
+  if operation == 1:
        print("The sum of all numbers is: ", sum(array1))
-elif operation == 2:
+  elif operation == 2:
        print("The difference of all numbers is: ", subtract(array1))
-elif operation == 3:
+  elif operation == 3:
        print("The product of all numbers is: ", multiply(array1))
-elif operation == 4:
+  elif operation == 4:
        print("The quotient of all numbers is: ", divide(array1))
-elif operation == 5:
+  elif operation == 5:
        print("The square root of the sum of all numbers is: ", sqrt(array1))
-elif operation == 6:
+  elif operation == 6:
        print("The mean of all numbers is: ", mean(array1))
-elif operation == 7:
+  elif operation == 7:
        print("The standard deviation of all numbers is: ", std(array1))
-elif operation == 8:
+  elif operation == 8:
        print("The median of all numbers is: ", median(array1))
-elif operation == 9:
+  elif operation == 9:
        tabular_format = pand.Series(array1, index = [f"{i + 1}" for i in range(len(array1))])
        print("The numbers in tabular form are:\n", tabular_format)
-elif operation == 10:
-       print("Enter problem to solve: ")
-       problem = input()
-       response = llm(problem)
-       print("Solution : ", response)
-else:
+  else:
          print("Invalid operation selected.")
+elif first_choice == "2":
+ problem = input("Enter the math problem you want to solve: ")
+ response = llm(problem)
+ print(response)
+ 
