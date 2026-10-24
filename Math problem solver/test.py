@@ -1,5 +1,8 @@
 import numpy as np
 import pandas as pand
+from langchain_google_genai import ChatGoogleGenerativeAI
+from getpass import getpass
+import os
 a = 0
 def InputingNumbers(num_arr):
       
@@ -48,6 +51,13 @@ def square(num_arr):
         square_value = np.square(num_arr)
         return square_value
 
+
+os.environ["GOOGLE_API_KEY"] = getpass("Enter your Google API key: ")
+llm = ChatGoogleGenerativeAI(
+       model="gemini-3.8-flash",
+       temperature=0.5
+       )
+
 array1 = np.array([])
 print("Enter a number: ")
 first = float(input())
@@ -65,7 +75,7 @@ while answer == "Yes" or answer == "y" or answer == "Y" or answer == "yes":
     answer = input()
 
 print("You have entered all the numbers you want to enter.")
-print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n 6. Mean\n7. Standard Deviation\n8. Median\n9. Show in tabular form")
+print("Select an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n 6. Mean\n7. Standard Deviation\n8. Median\n9. Show in tabular form\n10. Solve a math problem")
 operation = int(input())
 if operation == 1:
        print("The sum of all numbers is: ", sum(array1))
@@ -86,5 +96,10 @@ elif operation == 8:
 elif operation == 9:
        tabular_format = pand.Series(array1, index = [f"{i + 1}" for i in range(len(array1))])
        print("The numbers in tabular form are:\n", tabular_format)
+elif operation == 10:
+       print("Enter problem to solve: ")
+       problem = input()
+       response = llm(problem)
+       print("Solution : ", response)
 else:
          print("Invalid operation selected.")

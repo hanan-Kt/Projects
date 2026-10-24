@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+opencv-python
+matplotlib
+langchain
+langchain-openai
+langchain-google-genai
+math
