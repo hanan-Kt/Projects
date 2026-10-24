@@ -102,6 +102,6 @@ if first_choice == "1":
          print("Invalid operation selected.")
 elif first_choice == "2":
  problem = input("Enter the math problem you want to solve: ")
- response = llm(problem)
- print(response)
+ response = llm.invoke(problem)
+ print(response.content.strip())
  
