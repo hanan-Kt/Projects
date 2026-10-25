@@ -51,11 +51,13 @@ def square(num_arr):
         square_value = np.square(num_arr)
         return square_value
 
-
+ 
 os.environ["GOOGLE_API_KEY"] = getpass("Enter your Google API key: ")
 llm = ChatGoogleGenerativeAI(
-       model="gemini-3.8-flash",
-       temperature=0.5
+       model="gemini-3.5-flash-lite",
+       timeout=20,
+       thinking_level="minimal",
+       max_retries = 1
        )
 
 first_choice = input("Do you want to enter numbers or solve a problem:\n1. Enter numbers\n2. Solve a problem\n")
@@ -102,8 +104,6 @@ if first_choice == "1":
          print("Invalid operation selected.")
 elif first_choice == "2":
  problem = input("Enter the math problem you want to solve: ")
- response = llm.invoke(problem)
- diction = response.content[0]
- final_response = diction['text']
- print(final_response)
- 
+ for chunk in llm.stream(problem):
+        print(chunk.text, end="", flush=True)
+print()
